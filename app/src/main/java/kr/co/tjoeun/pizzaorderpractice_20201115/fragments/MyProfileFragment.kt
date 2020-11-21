@@ -1,5 +1,6 @@
 package kr.co.tjoeun.pizzaorderpractice_20201115.fragments
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -42,6 +43,18 @@ class MyProfileFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
 
 //        받아온 닉네임 반영 작업 필요
+
+        if (requestCode == REQ_FOR_NICKNAME) {
+
+            if (resultCode == Activity.RESULT_OK) {
+
+                val newNickName = data?.getStringExtra("nickName")
+
+                nickNameTxt.text = newNickName
+
+            }
+
+        }
 
 
     }
