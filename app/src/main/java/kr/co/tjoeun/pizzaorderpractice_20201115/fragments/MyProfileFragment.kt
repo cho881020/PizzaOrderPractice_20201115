@@ -6,9 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.fragment_my_profile.*
+import kr.co.tjoeun.pizzaorderpractice_20201115.EditNickNameActivity
 import kr.co.tjoeun.pizzaorderpractice_20201115.R
 
 class MyProfileFragment : Fragment() {
+
+    val REQ_FOR_NICKNAME = 1005
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,6 +26,15 @@ class MyProfileFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
 //        내 닉네임 변경 관련 기능 작성해야함
+
+        changeNickNameBtn.setOnClickListener {
+
+            val myIntent = Intent(context!!, EditNickNameActivity::class.java)
+            startActivityForResult(myIntent, REQ_FOR_NICKNAME)
+
+
+        }
+
     }
 
 
